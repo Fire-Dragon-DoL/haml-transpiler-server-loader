@@ -1,6 +1,6 @@
 {
   "name": "haml-transpiler-server-loader",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "Uses Ruby haml-transpiler-server gem to transpile HAML files to HTML with decent speed using ruby executable",
   "main": "index.js",
   "scripts": {
