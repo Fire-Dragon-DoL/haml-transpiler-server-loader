@@ -1,0 +1,29 @@
+{
+  "name": "webpack_haml_ruby",
+  "version": "1.0.0",
+  "engineStrict": true,
+  "private": true,
+  "engines": {
+    "node": "5.9.1"
+  },
+  "description": "Webpack HAML ruby experiment",
+  "main": "src/index.js",
+  "private": true,
+  "scripts": {
+    "start": "webpack-dev-server"
+  },
+  "keywords": [
+    "webpack",
+    "haml",
+    "ruby"
+  ],
+  "author": "Francesco Belladonna",
+  "license": "MIT",
+  "devDependencies": {
+    "file-loader": "0.8.5",
+    "raw-loader": "0.5.1",
+    "webpack": "1.12.14",
+    "webpack-dev-server": "1.14.1",
+    "haml-transpiler-server-loader": "2.0.1"
+  }
+}
