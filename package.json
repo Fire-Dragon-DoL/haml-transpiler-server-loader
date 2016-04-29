@@ -26,7 +26,7 @@
   "dependencies": {
     "bluebird": "3.3.4",
     "form-data": "1.0.0-rc4",
-    "loader-utils": "0.2.13",
+    "loader-utils": "0.2.14",
     "node-fetch": "1.4.1"
   }
 }

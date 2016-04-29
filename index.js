@@ -18,7 +18,10 @@ module.exports = function(content, map) {
     ip:           "127.0.0.1",
     moduleExport: false
   };
-  var queryConfig = getLoaderConfig(this, "hamlTranspilerServerLoader");
+  var queryConfig = loaderUtils.getLoaderConfig(
+    this,
+    "hamlTranspilerServerLoader"
+  );
 
   config = Object.assign(config, queryConfig);
 
