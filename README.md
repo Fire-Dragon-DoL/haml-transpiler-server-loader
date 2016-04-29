@@ -42,7 +42,33 @@ Check our
 ## Configuration
 
 You can configure which server `haml-transpiler-server-loader` listens to by
-setting the following env variables:
+setting the following query values or by setting in webpack config the key
+`hamlTranspilerServerLoader` (query has priority):
 
-- `HAMLTS_IP` the server hostname or IP, defaults to `127.0.0.1`
-- `HAMLTS_PORT` the server port, defaults to `5487`
+- `ip` the server hostname or IP, defaults to `"127.0.0.1"`
+- `port` the server port, defaults to `5487`
+- `moduleExport` boolean, if the loader should output a simple string or a
+  `module.exports = "templateContent";`
+
+### Example
+
+```js
+var webpackConfig = {
+  module: {
+    loaders: [
+      {
+        test: /\.haml$/,
+        loader: "haml-transpiler-server-loader?-moduleExport&port=1234",
+        exclude: [
+          /node_modules/
+        ]
+      }
+    ]
+  },
+  hamlTranspilerServerLoader: {
+    ip:           "127.0.0.1",
+    port:         5487,
+    moduleExport: true
+  }
+};
+```

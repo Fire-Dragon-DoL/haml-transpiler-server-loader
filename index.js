@@ -4,15 +4,25 @@ var FormData    = require("form-data");
 var fetch       = require("node-fetch");
 var loaderUtils = require("loader-utils");
 
+function wrapInModuleExport(transpiledText) {
+  return "module.exports = " + JSON.stringify(transpiledText) + ";";
+}
+
 module.exports = function(content, map) {
   this.cacheable && this.cacheable();
 
   var callback = this.async();
   var result   = null;
   var config   = {
-    port: process.env.HAMLTS_PORT || 5487,
-    ip:   process.env.HAMLTS_IP   || "127.0.0.1"
+    port:         5487,
+    ip:           "127.0.0.1",
+    moduleExport: false
   };
+  var queryConfig = getLoaderConfig(this, "hamlTranspilerServerLoader");
+
+  config = Object.assign(config, queryConfig);
+
+  console.log("configuration: ", config.toJSON());
 
   var requestUrl = url.format({
     protocol: "http",
@@ -71,7 +81,9 @@ module.exports = function(content, map) {
       }
     })
     .then(function(transpiled) {
-      callback(null, transpiled, map);
+      if (config.moduleExport)
+        transpiled = wrapInModuleExport(transpiled)
+      callback(null, transpiled, map)
     })
     .catch(function(error) {
       var errorText = (error || "").toString();
