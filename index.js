@@ -25,8 +25,6 @@ module.exports = function(content, map) {
 
   config = Object.assign(config, queryConfig);
 
-  console.log("configuration: ", config.toJSON());
-
   var requestUrl = url.format({
     protocol: "http",
     slashes:  true,

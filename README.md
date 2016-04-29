@@ -52,6 +52,9 @@ setting the following query values or by setting in webpack config the key
 
 ### Example
 
+Remember that in query `-moduleExport` sets it to false, `moduleExport` sets it
+to true.
+
 ```js
 var webpackConfig = {
   module: {
